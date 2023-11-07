@@ -3,6 +3,7 @@
 use App\Models\Items;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ItemsController;
 
 /*
@@ -23,6 +24,5 @@ Route::get('/items/{id}', [ItemsController::class, 'show']);
 Route::put('/items/{id}', [ItemsController::class, 'update']);
 Route::delete('/items/{id}', [ItemsController::class, 'delete']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('test', [AuthController::class, 'test']);
+Route::post('register', [AuthController::class, 'register']);
