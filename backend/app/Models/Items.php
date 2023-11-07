@@ -14,4 +14,5 @@ class Items extends Model
         'description',
         'price'
     ];
+
 }
