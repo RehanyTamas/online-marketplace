@@ -27,7 +27,7 @@ class ItemsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
         return Items::find($id);
     }
