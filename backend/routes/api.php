@@ -20,9 +20,9 @@ Route::resource('items', 'ItemsController');
 
 Route::get('/items', [ItemsController::class, 'index']);
 Route::post('/items', [ItemsController::class, 'store']);
-Route::get('/items/{id}', [ItemsController::class, 'show']);
-Route::put('/items/{id}', [ItemsController::class, 'update']);
-Route::delete('/items/{id}', [ItemsController::class, 'delete']);
+Route::get('/item/{id}', [ItemsController::class, 'show']);
+Route::put('/item/{id}', [ItemsController::class, 'update']);
+Route::delete('/item/{id}', [ItemsController::class, 'delete']);
 
 Route::get('test', [AuthController::class, 'test']);
 Route::post('register', [AuthController::class, 'register']);
