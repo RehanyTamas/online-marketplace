@@ -1,11 +1,12 @@
 ## Tech stack
-- frontend - Javascript / React / HTML / css
-- backend - PHP / Laravel
-- database - mysql
+- frontend - Javascript ES2020 / React 18.2 / HTML / css
+- backend - PHP 8+ / Laravel Framework 10.30.1
+- database - mysql 8+
 
 ## Database UML
-Table: - User : -userId, -username, -email, -password
-       - Item: -itemId, -name, -price, -description, -photoId, -uploaderId
+Table: 
+- User : -userId, -username, -email, -password
+- Item: -itemId, -name, -price, -description, -photoId, -uploaderId
 
 ## User Flow
 - Navigation is a key in a website, so in our front page for clarity we are having a 
