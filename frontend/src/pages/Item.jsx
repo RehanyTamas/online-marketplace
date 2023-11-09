@@ -26,20 +26,30 @@ const Item = () => {
   }
 
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-            <img className="w-full" src="https://via.placeholder.com/350x200" alt="Placeholder" />
-            <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{item.name}</div>
-                <p className="text-gray-700 text-base">
-                    {item.description}
-                </p>
-            </div>
-            <div className="px-6 py-4">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Buy It
-                </button>
-            </div>
+    <div className="max-w-sm mx-auto rounded overflow-hidden shadow-lg">
+      <img className="w-full" src="https://via.placeholder.com/350x200" alt="Placeholder" />
+      <div className="px-6 py-4">
+        <div className="font-bold text-center text-orange-400 text-xl mb-2">{item.name}</div>
+        <p className="text-center text-orange-400 text-base">
+          {item.description}
+        </p>
+      </div>
+      <div className="columns-2 px-6 py-4">
+        <div className="font-bold text-orange-500 text-xl text-center mb-2">${item.price}</div>
+        <div className="text-center">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Buy It
+          </button>
         </div>
+      </div>
+      <div className="text-center">
+        <Link to={`/`}>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Back to the Main Page
+          </button>
+        </Link>
+      </div>
+    </div>
   )
 }
 
