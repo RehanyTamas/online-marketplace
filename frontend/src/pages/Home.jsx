@@ -35,8 +35,7 @@ const Home = () => {
               <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Item Name</th>
               <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
               <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-              <th>Info</th>
-              <th>Delete</th>
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Info</th>
               <th />
             </tr>
           </thead>
@@ -45,16 +44,14 @@ const Home = () => {
               <tr key={item.id}>
                 <td className="px-6 py-4 whitespace-nowrap">{item.name}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{item.description}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{item.price}</td>
-                <Link to={`/item/${item.id}`}>
-                  <button type="button">Info</button>
-                </Link>
-
-                <td>
-                  <button type="button" >
-                    Delete
-                  </button>
+                <td className="px-6 py-4 whitespace-nowrap">${item.price}</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <Link to={`/item/${item.id}`}>
+                    <button type="button">Info</button>
+                  </Link>
                 </td>
+
+
               </tr>
             ))}
           </tbody>
