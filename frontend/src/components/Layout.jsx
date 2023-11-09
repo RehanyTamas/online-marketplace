@@ -1,10 +1,19 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 const Layout = () => {
   return (
     <div>
-      Layout
+      <div>
+      <Link class="no-underline border-b border-blue text-blue-600" to="../register/">
+        register
+      </Link>
+      </div>
+      <div>
+      <Link class="no-underline border-b border-blue text-blue-600" to="../login/">
+        Login
+      </Link>
+      </div>
       <Outlet />
     </div>
   )
