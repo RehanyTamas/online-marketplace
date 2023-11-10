@@ -19,7 +19,7 @@ const Home = () => {
   }, []);
 
   if (loading) {
-    return <h1>Loading</h1>;
+    return <h1 className='text-blue-600'>Loading</h1>;
   }
 
   return (
