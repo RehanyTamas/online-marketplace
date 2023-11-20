@@ -26,3 +26,4 @@ Route::delete('/item/{id}', [ItemsController::class, 'delete']);
 
 Route::get('test', [AuthController::class, 'test']);
 Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
