@@ -1,0 +1,3 @@
+- Dont send and save user from "users" table rather "personal access token" table
+- PHPADMIN timezone is off 1 hour
+- 
