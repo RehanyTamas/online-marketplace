@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Items;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class ItemsController extends Controller
 {
@@ -21,7 +23,14 @@ class ItemsController extends Controller
      */
     public function store(Request $request)
     {
-        return Items::create($request->all());
+        $user = Auth::user();
+
+        $itemData = $request->all();
+        $itemData['id_user'] = $user->getKey();
+
+        $item = Items::create($itemData);
+
+        return response()->json($item, 201);
     }
 
     /**
