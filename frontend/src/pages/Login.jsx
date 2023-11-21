@@ -33,7 +33,6 @@ const Login = () => {
       setData(data)
       setSuccesVisibility('visible');
       localStorage.setItem("userToken", data.token);
-      localStorage.setItem("userId", data.id);
       console.log('Token:', data.token);
 
       setTimeout(() => {
