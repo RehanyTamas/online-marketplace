@@ -41,14 +41,36 @@ class ItemsController extends Controller
         return Items::find($id);
     }
 
+    public function showUserItems()
+    {
+        $user = Auth::user();
+
+        $userId = $user->getKey();
+
+        $items = Items::where("id_user", $userId)->get();
+
+        return $items;
+    }
+
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        $post = Items::find($id);
-        $post->update($request->all());
-        return $post;
+
+        $user = Auth::user();
+
+        $userId = $user->getKey();
+
+        $item = Items::find($id);
+
+        if($item["id_user"] == $userId) {
+            $item->update($request->all());
+
+        return $item;
+        } else {
+            return response()->json(["error" => "this item doesnt belong to this user"], 403);
+        }
     }
 
     /**
@@ -56,7 +78,17 @@ class ItemsController extends Controller
      */
     public function destroy(string $id)
     {
-        return Items::destroy($id);
+        $user = Auth::user();
+
+        $userId = $user->getKey();
+
+        $item = Items::find($id);
+
+        if($item["id_user"] == $userId) {
+            return Items::destroy($id);
+        } else {
+            return response()->json(["error" => "this item doesnt belong to this user"], 403);
+        }
     }
 
 }

@@ -16,10 +16,10 @@ use App\Http\Controllers\ItemsController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::resource('items', 'ItemsController');
+//Route::resource('items', 'ItemsController');
 
-Route::get('/items', [ItemsController::class, 'index']);
-Route::get('/item/{id}', [ItemsController::class, 'show']);
+Route::get('items', [ItemsController::class, 'index']);
+Route::get('items/{id}', [ItemsController::class, 'show']);
 
 
 Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
@@ -28,10 +28,11 @@ Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
 
 Route::group(['middleware' => 'auth:sanctum'], function(){
     //All secure URL's
-    Route::post('/items', [ItemsController::class, 'store']);
-    Route::put('/item/{id}', [ItemsController::class, 'update']);
-    Route::delete('/item/{id}', [ItemsController::class, 'delete']);
-    Route::get('logout', [AuthController::class, 'logout']);
+    Route::get('itemsUserItems', [ItemsController::class, 'showUserItems']);
+    Route::post('itemsUserItems', [ItemsController::class, 'store']);
+    Route::put('itemsUserItems/{id}', [ItemsController::class, 'update']);
+    Route::delete('itemsUserItems/{id}', [ItemsController::class, 'destroy']);
+    Route::post('logout', [AuthController::class, 'logout']);
 });
 
 //Route::get('test', [AuthController::class, 'test']);
