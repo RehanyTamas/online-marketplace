@@ -46,7 +46,7 @@ class AuthController extends Controller
         $token = $user->createToken('myapptoken')->plainTextToken;
 
         $response = [
-            'user' => $user,
+            'id' => $user->id,
             'token' => $token
         ];
 
