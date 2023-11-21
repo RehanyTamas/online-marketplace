@@ -1,9 +1,18 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import { BiSolidErrorCircle } from 'react-icons/bi'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Register = () => {
+  let navigate = useNavigate();
+  const [isLogined,setIsLogined] = useState(false);
+  useEffect(() =>{
+    setIsLogined( localStorage.getItem('userToken') !== null);
+    if(isLogined){
+     navigate("/")
+    }
+ },[isLogined])
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
