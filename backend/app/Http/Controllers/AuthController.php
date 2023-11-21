@@ -46,7 +46,7 @@ class AuthController extends Controller
         $token = $user->createToken('myapptoken')->plainTextToken;
 
         $response = [
-            'id' => $user->id,
+            //'id' => $user->id,
             'token' => $token
         ];
 
@@ -54,7 +54,7 @@ class AuthController extends Controller
 
     }
 
-    public function  logout(Request $request)
+    public function logout(Request $request)
     {
         auth()->user()->tokens()->delete();
 
