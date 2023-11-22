@@ -10,11 +10,12 @@ const Layout = () => {
   useEffect(() =>{
      setIsLogined( localStorage.getItem('userToken') !== null);
   },[isLogined])
+
   return (
     <div>
-      {isLogined ? <LogOutNavbar /> : <Navbar/>}
+      {isLogined ? <LogOutNavbar setIsLogined={setIsLogined}  /> : <Navbar />}
       <section>
-        <Outlet />
+        <Outlet setIsLogined={setIsLogined} isLogined={isLogined} />
       </section>
     </div>
   )

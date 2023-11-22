@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const LogOutNavbar = () => {
+const LogOutNavbar = ({ setIsLogined }) => {
     let navigate = useNavigate(); 
     const [token,setToken] = useState(null);
     useEffect(() =>{
@@ -13,7 +13,7 @@ const LogOutNavbar = () => {
         const out = 'Bearer ' +token;
         console.log(out)
         const requestOptions = {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Authorization': out,
             }
@@ -22,7 +22,9 @@ const LogOutNavbar = () => {
           fetch('http://127.0.0.1:8000/api/logout', requestOptions)
           .then(response => response.json())
           .then(data => {
-
+            setToken(null)
+            localStorage.clear();
+            setIsLogined(false)
               navigate(path)
           }).catch(err => console.error(err));
          

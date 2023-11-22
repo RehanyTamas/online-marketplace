@@ -5,19 +5,18 @@ import { BiSolidErrorCircle } from 'react-icons/bi'
 import { useNavigate, Link  } from "react-router-dom";
 
 
-const Login = () => {
+const Login = ({isLogined,setIsLogined}) => {
   let navigate = useNavigate(); 
-  const [isLogined,setIsLogined] = useState(false);
+
   useEffect(() =>{
-     setIsLogined( localStorage.getItem('userToken') !== null);
+     
      if(isLogined){
       navigate("/")
      }
-  },[isLogined])
+  },[])
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [data, setData] = useState(null);
   const [errorVisibility, setErrorVisibility] = useState('invisible')
   const [succesVisibility, setSuccesVisibility] = useState('invisible')
   function clearInputs() {
@@ -34,35 +33,27 @@ const Login = () => {
       body: JSON.stringify({ email: email, password: password })
     };
     
-    let response = fetch('http://127.0.0.1:8000/api/login', requestOptions)
+    fetch('http://127.0.0.1:8000/api/login', requestOptions)
     .then(response => response.json())
     .then(data => {
       clearInputs();
-      setData(data)
       setSuccesVisibility('visible');
       localStorage.setItem("userToken", data.token);
       console.log('Token:', data.token);
-
       setTimeout(() => {
           setSuccesVisibility('invisible');
-          console.log(data);
-          if(data.token){
-            navigate("/");
-          } else {
-            console.log("asd");
-          }
-      }, 2500);
+          navigate('/')
+          window.location.reload();
+      }, 1500);
       })
       .catch(error => {
         clearInputs();
         setErrorVisibility('visible')
         setTimeout(() => {
           setErrorVisibility('invisible')
-          console.log('hi')
         }, 2500);
       })
 
-      console.log(response);
   };
 
 
