@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Item from "./pages/Item";
+import Sales from "./pages/Sales";
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/item/:id",
         element: <Item />,
+      },
+      {
+        path: "/sales",
+        element: <Sales />,
       },
     ],
   },
