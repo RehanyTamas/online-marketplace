@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::post('itemsUserItems', [ItemsController::class, 'store']);
     Route::put('itemsUserItems/{id}', [ItemsController::class, 'update']);
     Route::delete('itemsUserItems/{id}', [ItemsController::class, 'destroy']);
-    Route::post('transactions/{id}', [TransactionController::class, 'store']);
+    Route::post('purchase', [TransactionController::class, 'purchase']);
 
     Route::post('logout', [AuthController::class, 'logout']);
 });
