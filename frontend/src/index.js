@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Item from "./pages/Item";
 import Sales from "./pages/Sales";
 import NewItem from "./pages/NewItem";
+import EditItem from "./pages/EditItem";
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/sales/newitem",
         element: <NewItem />,
+      },
+      {
+        path: "/sales/edititem/:id",
+        element: <EditItem />,
       },
     ],
   },
