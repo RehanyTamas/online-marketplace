@@ -15,7 +15,7 @@ const Layout = () => {
     <div>
       {isLogined ? <LogOutNavbar setIsLogined={setIsLogined}  /> : <Navbar />}
       <section>
-        <Outlet setIsLogined={setIsLogined} isLogined={isLogined} />
+        <Outlet  context={[isLogined, setIsLogined]} />
       </section>
     </div>
   )
