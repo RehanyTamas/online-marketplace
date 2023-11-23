@@ -10,6 +10,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Item from "./pages/Item";
 import Sales from "./pages/Sales";
+import NewItem from "./pages/NewItem";
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/sales",
         element: <Sales />,
+      },
+      {
+        path: "/sales/newitem",
+        element: <NewItem />,
       },
     ],
   },
