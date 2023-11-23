@@ -12,6 +12,7 @@ import Item from "./pages/Item";
 import Sales from "./pages/Sales";
 import NewItem from "./pages/NewItem";
 import EditItem from "./pages/EditItem";
+import DeleteItem from "./pages/DeleteItem";
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/sales/edititem/:id",
         element: <EditItem />,
+      },
+      {
+        path: "/sales/deleteitem/:id",
+        element: <DeleteItem />,
       },
     ],
   },
