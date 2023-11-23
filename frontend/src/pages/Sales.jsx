@@ -54,6 +54,7 @@ const Sales = () => {
                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Info</th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Delete</th>
                         <th />
                     </tr>
                     </thead>
@@ -66,6 +67,11 @@ const Sales = () => {
                             <td className="px-6 py-4 whitespace-nowrap">
                                 <Link to={`/sales/edititem/${item.id}`}>
                                     <button type="button">Edit</button>
+                                </Link>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                                <Link to={`/sales/deleteitem/${item.id}`}>
+                                    <button type="button">X</button>
                                 </Link>
                             </td>
                         </tr>
