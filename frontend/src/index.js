@@ -43,15 +43,15 @@ const router = createBrowserRouter([
         element: <Sales />,
       },
       {
-        path: "/sales/newitem",
+        path: "/sales/new-item",
         element: <NewItem />,
       },
       {
-        path: "/sales/edititem/:id",
+        path: "/sales/edit-item/:id",
         element: <EditItem />,
       },
       {
-        path: "/sales/deleteitem/:id",
+        path: "/sales/delete-item/:id",
         element: <DeleteItem />,
       },
       {
