@@ -53,7 +53,7 @@ const Sales = () => {
                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Item Name</th>
                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Info</th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edit</th>
                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Delete</th>
                         <th />
                     </tr>
@@ -65,12 +65,12 @@ const Sales = () => {
                             <td className="px-6 py-4 whitespace-nowrap">{item.description}</td>
                             <td className="px-6 py-4 whitespace-nowrap">${item.price}</td>
                             <td className="px-6 py-4 whitespace-nowrap">
-                                <Link to={`/sales/edititem/${item.id}`}>
+                                <Link to={`/sales/edit-item/${item.id}`}>
                                     <button type="button">Edit</button>
                                 </Link>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
-                                <Link to={`/sales/deleteitem/${item.id}`}>
+                                <Link to={`/sales/delete-item/${item.id}`}>
                                     <button type="button">X</button>
                                 </Link>
                             </td>
@@ -78,7 +78,7 @@ const Sales = () => {
                     ))}
                     <tr>
                         <td className="px-6 py-4 whitespace-nowrap">
-                            <Link to={`/sales/newitem`}>
+                            <Link to={`/sales/new-item`}>
                                 <button type="button">+ New</button>
                             </Link>
                         </td>
