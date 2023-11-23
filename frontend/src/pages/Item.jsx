@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 const fetchItem = (id) => {
-  return fetch(`http://127.0.0.1:8000/api/item/${id}`).then((res) => res.json());
+  return fetch(`http://127.0.0.1:8000/api/items/${id}`).then((res) => res.json());
 };
 
 const Item = () => {
