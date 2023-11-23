@@ -45,9 +45,6 @@ const Sales = () => {
     console.log(items);
     return (
         <div>
-
-
-
             <div className="max-w-screen-md mx-auto bg-white shadow-md p-6 rounded-md">
                 <h2 className="text-2xl font-semibold mb-4">Item List</h2>
                 <table className="min-w-full divide-y divide-gray-200">
@@ -68,11 +65,18 @@ const Sales = () => {
                             <td className="px-6 py-4 whitespace-nowrap">${item.price}</td>
                             <td className="px-6 py-4 whitespace-nowrap">
                                 <Link to={`/item/${item.id}`}>
-                                    <button type="button">Info</button>
+                                    <button type="button">Edit</button>
                                 </Link>
                             </td>
                         </tr>
                     ))}
+                    <tr>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                            <Link to={`/sales/newitem`}>
+                                <button type="button">+ New</button>
+                            </Link>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
