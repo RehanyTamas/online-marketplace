@@ -15,4 +15,19 @@ class Transaction extends Model
         'id_seller',
         'id_buyer'
     ];
+
+    public function item()
+    {
+        return $this->belongsTo(Items::class);
+    }
+
+    public function seller()
+    {
+        return $this->belongsTo(User::class, 'id_seller');
+    }
+
+    public function buyer()
+    {
+        return $this->belongsTo(User::class, 'id_buyer');
+    }
 }

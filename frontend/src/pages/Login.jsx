@@ -2,18 +2,18 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { BiSolidErrorCircle } from 'react-icons/bi'
-import { useNavigate, Link  } from "react-router-dom";
+import { useNavigate, Link, useOutletContext  } from "react-router-dom";
 
 
-const Login = ({isLogined,setIsLogined}) => {
+const Login = () => {
   let navigate = useNavigate(); 
-
+  const [isLogined, setIsLogined] = useOutletContext();
   useEffect(() =>{
      
      if(isLogined){
       navigate("/")
      }
-  },[])
+  },[isLogined])
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -43,7 +43,7 @@ const Login = ({isLogined,setIsLogined}) => {
       setTimeout(() => {
           setSuccesVisibility('invisible');
           navigate('/')
-          window.location.reload();
+          setIsLogined(true)
       }, 1500);
       })
       .catch(error => {
