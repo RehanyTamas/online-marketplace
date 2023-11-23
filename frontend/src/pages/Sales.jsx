@@ -64,7 +64,7 @@ const Sales = () => {
                             <td className="px-6 py-4 whitespace-nowrap">{item.description}</td>
                             <td className="px-6 py-4 whitespace-nowrap">${item.price}</td>
                             <td className="px-6 py-4 whitespace-nowrap">
-                                <Link to={`/item/${item.id}`}>
+                                <Link to={`/sales/edititem/${item.id}`}>
                                     <button type="button">Edit</button>
                                 </Link>
                             </td>
