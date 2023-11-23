@@ -12,8 +12,6 @@ class TransactionController extends Controller
 
         public function purchase(Request $request)
     {
-
-
         $requestData =  $request->json()->all();
 
         if (isset($requestData['itemIds']) && is_array($requestData['itemIds'])) {
@@ -26,7 +24,6 @@ class TransactionController extends Controller
 
                 $transactionData['id_buyer'] = $user['id']; //or getKey()
 
-
                 $transactionData['name'] = $item->name;
                 $transactionData['description'] = $item->description;
                 $transactionData['price'] = $item->price;
@@ -35,12 +32,28 @@ class TransactionController extends Controller
                 $transactionItem = Transaction::create($transactionData);
 
                 Items::destroy($itemId);
-
             }
             }
                 return response()->json(["message" => "Successful purchase."]);
         }
         return response()->json(["error" => "Something went wrong!", 500]);
+    }
+
+    public function itemsInCart()
+    {
+        $user = Auth::user();
+
+
+        $transactions = $user->purchasedTransactions;
+
+        /*$itemsBought = [];
+
+        foreach ($transactions as $transaction) {
+            $itemsBought[] = $transaction->item;
+        }*/
+
+        return $transactions;
+
     }
 
 }
