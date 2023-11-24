@@ -40,21 +40,20 @@ class AuthController extends Controller
         if(!$user || !Hash::check($fields['password'], $user->password)){
             return response([
                 'message' => 'Bad creds',
-            ], 401);
+            ], Response::HTTP_UNAUTHORIZED);
         }
 
         $token = $user->createToken('myapptoken')->plainTextToken;
 
         $response = [
-            //'id' => $user->id,
             'token' => $token
         ];
 
-        return response($response, 200);
+        return response($response, Response::HTTP_OK);
 
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         auth()->user()->tokens()->delete();
 
