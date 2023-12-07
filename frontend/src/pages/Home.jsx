@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import Loading from '../components/Loading';
 
 const fetchItems = () => {
   return fetch(`http://127.0.0.1:8000/api/items`).then((res) => res.json());
@@ -19,7 +20,7 @@ const Home = () => {
   }, []);
 
   if (loading) {
-    return <h1 className='text-blue-600'>Loading</h1>;
+    return <Loading />;
   }
 
   return (
