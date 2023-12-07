@@ -125,12 +125,12 @@ return (
             </table>
         </div>
         <div className="mt-4">
-            <h3 className="text-lg font-semibold mb-2">Add Item</h3>
-            <form onSubmit={(e) => { e.preventDefault(); handleInvoice(e); }}>
-                <div className="mb-4">
+            <h3 className="text-blue-500 text-lg font-semibold mb-2 flex flex-col items-center">Add Item</h3>
+            <form className='flex flex-col items-center' onSubmit={(e) => { e.preventDefault(); handleInvoice(e); }}>
+                <div className="mb-4 w-96">
                     <label className="block text-sm font-medium text-gray-600">Name</label>
                     <input
-                        className="block border border-grey-light w-1/3 p-3 rounded mb-4"
+                        className="block border border-grey-light w-96 p-3 rounded mb-4"
                         placeholder="Name"
                         type="name"
                         id="name"
@@ -140,10 +140,10 @@ return (
                         required
                     />
                 </div>
-                <div className="mb-4">
+                <div className="mb-4 w-96">
                     <label className="block text-sm font-medium text-gray-600">Delivery Address</label>
                     <input
-                        className="block border border-grey-light w-1/3 p-3 rounded mb-4"
+                        className="block border border-grey-light w-96 p-3 rounded mb-4"
                         placeholder="Address"
                         type="address"
                         id="address"
@@ -153,8 +153,8 @@ return (
                         required
                     />
                 </div>
-                <div className="mb-4 w-1/3">
-                    <label className="block text-sm font-medium text-gray-600 w-1/3">Category</label>
+                <div className="mb-4 w-96">
+                    <label className="block text-sm font-medium text-gray-600 w-96">Category</label>
                     <select value={paymentOption} onChange={(e) => setPaymentOption(e.target.value)} className="mt-1 p-2 border border-gray-300 rounded w-full">
                         <option value="">Select a payment method</option>
                         <option value="cash">Collect on delivery</option>
@@ -163,15 +163,15 @@ return (
                 </div>
                 {paymentOption === 'card' && (
                     <div>
-                        <div className="mb-4 w-1/3">
+                        <div className="mb-4 w-96">
                             <label className="block text-sm font-medium text-gray-600">Credit Card</label>
                             <input type="text" value={creditCard} onChange={(e) => setCreditCard(e.target.value)} className="mt-1 p-2 border border-gray-300 rounded w-full" />
                         </div>
-                        <div className="mb-4 w-1/3">
+                        <div className="mb-4 w-96">
                             <label className="block text-sm font-medium text-gray-600">Expiration Date</label>
                             <input type="text" value={expirationDate} onChange={(e) => setExpirationDate(e.target.value)} className="mt-1 p-2 border border-gray-300 rounded w-full" />
                         </div>
-                        <div className="mb-4 w-1/3">
+                        <div className="mb-4 w-96">
                             <label className="block text-sm font-medium text-gray-600">CVV</label>
                             <input type="text" value={cvv} onChange={(e) => setCvv(e.target.value)} className="mt-1 p-2 border border-gray-300 rounded w-full" />
                         </div>
