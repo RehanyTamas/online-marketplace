@@ -136,7 +136,7 @@ return (
                         id="name"
                         name="name"
                         value={legalName}
-                        onChange={(e) => setAddress(e.target.value)}
+                        onChange={(e) => setLegalName(e.target.value)}
                         required
                     />
                 </div>
@@ -149,7 +149,7 @@ return (
                         id="address"
                         name="address"
                         value={address}
-                        onChange={(e) => setLegalName(e.target.value)}
+                        onChange={(e) => setAddress(e.target.value)}
                         required
                     />
                 </div>
