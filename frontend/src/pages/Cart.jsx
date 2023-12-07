@@ -135,7 +135,7 @@ return (
                         type="name"
                         id="name"
                         name="name"
-                        value={address}
+                        value={legalName}
                         onChange={(e) => setAddress(e.target.value)}
                         required
                     />
@@ -148,7 +148,7 @@ return (
                         type="address"
                         id="address"
                         name="address"
-                        value={legalName}
+                        value={address}
                         onChange={(e) => setLegalName(e.target.value)}
                         required
                     />
