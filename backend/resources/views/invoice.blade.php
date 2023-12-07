@@ -54,9 +54,7 @@
         <thead>
         <tr>
             <th>Product</th>
-            <th>Quantity</th>
             <th>Price</th>
-            <th>Total</th>
         </tr>
         </thead>
         <tbody>
@@ -71,6 +69,9 @@
 
     <div class="total">
         <p><strong>Total:</strong> {{ $totalAmount }}</p>
+    </div>
+    <div class="total">
+        <p><strong>Method of payment: </strong> {{ $paymentOption }}</p>
     </div>
 </div>
 </body>
