@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Items;
-use Barryvdh\Snappy\Facades\SnappyPdf;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\View;
-//use Knp\Snappy\Pdf;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class InvoiceController extends Controller
@@ -21,9 +17,6 @@ class InvoiceController extends Controller
             //Get data form request
             $requestData =  $request->json()->all();
 
-            //Fill customer data to array
-
-
             $customerName = $requestData['legalName'];
             $customerEmail = $user['email'] ;
             $customerAddress = $requestData['deliveryAddress'];
@@ -35,10 +28,10 @@ class InvoiceController extends Controller
                     $items[] = ['product' => $item['name'], 'price' => $item['price']];
                 }
             }
+
             //Calculate total cost
             $paymentOption = $requestData['paymentOption'];
             $totalAmount = array_sum(array_column($items, 'price'));
-
 
             //Compile data
             $data = [
@@ -50,29 +43,9 @@ class InvoiceController extends Controller
                 'totalAmount' => $totalAmount,
             ];
 
-
-
             // Generate PDF
-            //$html = view('invoice', $data)->render();
-            //$pdf = SnappyPDF::loadHTML($html);
-
-            //$pdf->download('invoice.pdf');
-
-            // Download the PDF
-            /*$pdf = SnappyPDF::loadView('invoice', $data);
-            return $pdf->download('invoice.pdf');*/
-
-           /* $html = View::make('invoice',$data)->render();
-            $pdf = SnappyPDF::loadHTML($html);*/
-
-
-
             $pdf = Pdf::loadView('invoice', $data);
             return $pdf->download('invoice.pdf');
-
-            //return $pdf->download('invoice.pdf');
-
-            //return response(['message' => 'OK']);
         }
 
         return response([
