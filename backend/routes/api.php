@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\TransactionController;
 use App\Models\Items;
 use Illuminate\Http\Request;
@@ -35,7 +36,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::delete('itemsUserItems/{id}', [ItemsController::class, 'destroy']);
     Route::post('purchase', [TransactionController::class, 'purchase']);
     Route::get('itemsBought', [TransactionController::class, 'itemsInCart']);
-
+    Route::post('purchase/invoice', [InvoiceController::class, 'makeInvoice']);
     Route::post('logout', [AuthController::class, 'logout']);
 });
 
