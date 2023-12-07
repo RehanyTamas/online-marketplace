@@ -79,6 +79,7 @@ const Cart = () => {
             })
             .catch(error => {
                 setTimeout(() => {
+                    console.error(error);
                 }, 2500);
             })
 
