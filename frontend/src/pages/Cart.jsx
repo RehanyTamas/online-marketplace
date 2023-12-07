@@ -58,9 +58,22 @@ const Cart = () => {
         };
 
         fetch('http://127.0.0.1:8000/api/purchase/invoice', requestOptions)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.blob();
+            })
             .then(data => {
                 setTimeout(() => {
+                    let downloadUrl = window.URL.createObjectURL(data);
+                    let a = document.createElement("a");
+                    a.href = downloadUrl;
+                    a.download = "invoice.pdf";
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a); // Cleanup
+                    window.URL.revokeObjectURL(downloadUrl); // Cleanup
                     navigate('/')
                 }, 1500);
             })
