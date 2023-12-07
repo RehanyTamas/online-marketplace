@@ -60,15 +60,15 @@
         <tbody>
         @foreach ($items as $item)
             <tr>
-                <td>{{ $item['product'] }}</td>
-                <td>{{ $item['price'] }}</td>
+                <td>{{ $item['product'] }} </td>
+                <td>{{ $item['price'] }} $</td>
             </tr>
         @endforeach
         </tbody>
     </table>
 
     <div class="total">
-        <p><strong>Total:</strong> {{ $totalAmount }}</p>
+        <p><strong>Total:</strong> {{ $totalAmount }} $</p>
     </div>
     <div class="total">
         <p><strong>Method of payment: </strong> {{ $paymentOption }}</p>
