@@ -125,7 +125,7 @@ return (
             </table>
         </div>
         <div className="mt-4">
-            <h3 className="text-blue-500 text-lg font-semibold mb-2 flex flex-col items-center">Add Item</h3>
+            <h3 className="text-blue-500 text-lg font-semibold mb-2 flex flex-col items-center">Order</h3>
             <form className='flex flex-col items-center' onSubmit={(e) => { e.preventDefault(); handleInvoice(e); }}>
                 <div className="mb-4 w-96">
                     <label className="block text-sm font-medium text-gray-600">Name</label>
