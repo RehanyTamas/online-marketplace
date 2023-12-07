@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::delete('itemsUserItems/{id}', [ItemsController::class, 'destroy']);
     Route::post('purchase', [TransactionController::class, 'purchase']);
     Route::get('itemsBought', [TransactionController::class, 'itemsInCart']);
-    Route::get('purchase/invoice', [InvoiceController::class, 'makeInvoice']);
+    Route::post('purchase/invoice', [InvoiceController::class, 'makeInvoice']);
     Route::post('logout', [AuthController::class, 'logout']);
 });
 
