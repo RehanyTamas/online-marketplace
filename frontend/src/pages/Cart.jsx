@@ -157,7 +157,7 @@ return (
                     <select value={paymentOption} onChange={(e) => setPaymentOption(e.target.value)} className="mt-1 p-2 border border-gray-300 rounded w-full">
                         <option value="">Select a payment method</option>
                         <option value="cash">Collect on delivery</option>
-                        <option value="card">Online</option>
+                        <option value="card">Card</option>
                     </select>
                 </div>
                 {paymentOption === 'card' && (
