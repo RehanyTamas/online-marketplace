@@ -46,7 +46,7 @@ This project requires that your machine is able run Laravel and ReactJs projects
   ```
 11. Start frontend
   ```sh
-  php start
+  npm start
   ```
 
 ## Implemented features
