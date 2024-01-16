@@ -1,5 +1,5 @@
 # Use an official PHP runtime as a base image
-FROM php:7.4-fpm
+FROM php:8.2-fpm
 
 # Set the working directory in the container
 WORKDIR /var/www/html
@@ -29,7 +29,7 @@ COPY .env.example .env
 RUN composer install
 
 # Run migrations during the container build
-RUN php artisan migrate
+#RUN php artisan migrate
 
 # Expose the port on which the app runs
 EXPOSE 80
