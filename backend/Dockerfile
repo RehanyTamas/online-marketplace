@@ -22,6 +22,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Copy the Laravel application files
 COPY . .
 
+# Make a copy of the ".env.example" file and name it ".env"
+COPY .env.example .env
+
 # Install Laravel dependencies
 RUN composer install
 
