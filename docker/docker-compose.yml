@@ -11,7 +11,7 @@ services:
     build:
       context: ../backend
     ports:
-      - "80:80"
+      - "8081:80"
     depends_on:
       - database
 
@@ -20,3 +20,5 @@ services:
       context: ./database
     ports:
       - "3306:3306"
+    restart: unless-stopped
+
