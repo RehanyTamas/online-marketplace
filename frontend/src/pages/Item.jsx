@@ -2,9 +2,10 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import { Link } from 'react-router-dom';
+import AppConfig from "../config";
 
 const fetchItem = (id) => {
-  return fetch(`http://127.0.0.1:8000/api/items/${id}`).then((res) => res.json());
+  return fetch(`${AppConfig.backendUrl}/api/items/${id}`).then((res) => res.json());
 };
 
 const Item = () => {
@@ -46,7 +47,7 @@ const Item = () => {
             body: JSON.stringify({ itemIds: [item.id] }) // Sending item ID directly without an array
         };
 
-        fetch('http://127.0.0.1:8000/api/purchase', requestOptions)
+        fetch(`${AppConfig.backendUrl}/api/purchase`, requestOptions)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to add item to the cart');

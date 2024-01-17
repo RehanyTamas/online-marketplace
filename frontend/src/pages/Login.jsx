@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { BiSolidErrorCircle } from 'react-icons/bi'
 import { useNavigate, Link, useOutletContext  } from "react-router-dom";
+import AppConfig from "../config";
 
 
 const Login = () => {
@@ -33,7 +34,7 @@ const Login = () => {
       body: JSON.stringify({ email: email, password: password })
     };
     
-    fetch('http://127.0.0.1:8000/api/login', requestOptions)
+    fetch(`${AppConfig.backendUrl}/api/login`, requestOptions)
     .then(response => response.json())
     .then(data => {
       clearInputs();

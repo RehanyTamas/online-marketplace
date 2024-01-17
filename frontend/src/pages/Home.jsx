@@ -2,9 +2,10 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
+import AppConfig from "../config";
 
 const fetchItems = () => {
-  return fetch(`http://127.0.0.1:8081/api/items`).then((res) => res.json());
+  return fetch(`${AppConfig.backendUrl}/api/items`).then((res) => res.json());
 };
 
 const Home = () => {
