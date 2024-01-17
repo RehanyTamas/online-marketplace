@@ -7,3 +7,5 @@ ENV MYSQL_ROOT_PASSWORD=rootpassword \
     MYSQL_USER=myuser \
     MYSQL_PASSWORD=mypassword
 
+# Copy the SQL dump file into the container
+COPY ./database.sql /docker-entrypoint-initdb.d/
