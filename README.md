@@ -28,24 +28,30 @@ This project requires that your machine is able run Laravel and ReactJs projects
   ```sh
   composer update && composer install
   ```
-5. Make a copy of the ".env.example" file, and fill it with the information of your own database. Name the file as ".env".
-6. Start backend
+5. Create tables in database
   ```sh
-  php artisan serve
+  php artisan migrate
   ```
-7. Open new terminal and navigate to the project directory
-8. Move to frontend folder
+6. Make a copy of the ".env.example" file, and fill it with the information of your own database. Name the file as ".env".
+7. Start backend
+  ```sh
+  php artisan serve --port=8081
+  ```
+8. Open new terminal and navigate to the project directory
+9. Move to frontend folder
   ```sh
    cd frontend
   ```
-9. Install dependencies(frontend)
+10. Install dependencies(frontend)
   ```sh
    npm install
   ```
-10. Start frontend
+11. Start frontend
   ```sh
   npm start
   ```
+
+If you change the url where the backend is running dont forget to change the frontend config file to match.
 
 ### Method 2
 
