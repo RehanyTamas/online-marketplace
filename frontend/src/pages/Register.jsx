@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { BiSolidErrorCircle } from 'react-icons/bi'
 import { Link, useNavigate } from "react-router-dom";
+import AppConfig from "../config";
 
 
 const Register = () => {
@@ -33,7 +34,7 @@ const Register = () => {
       body: JSON.stringify({ username: username, password: password, email: email })
     };
 
-    fetch('http://127.0.0.1:8000/api/register', requestOptions)
+    fetch(`${AppConfig.backendUrl}/api/register`, requestOptions)
       .then(response => response.json())
       .then(data => {
         clearInputs();

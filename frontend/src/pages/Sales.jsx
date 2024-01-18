@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
+import AppConfig from "../config";
 
 const fetchItems = (token) => {
     const out = 'Bearer ' +token;
@@ -13,7 +14,7 @@ const fetchItems = (token) => {
         }
 
     };
-    return fetch('http://127.0.0.1:8000/api/itemsUserItems', requestOptions)
+    return fetch(`${AppConfig.backendUrl}/api/itemsUserItems`, requestOptions)
         .then(response => response.json())
 
 };

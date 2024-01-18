@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+import AppConfig from "../config";
 
 const LogOutNavbar = ({ setIsLogined }) => {
     let navigate = useNavigate(); 
@@ -19,7 +20,7 @@ const LogOutNavbar = ({ setIsLogined }) => {
             }
             
           };
-          fetch('http://127.0.0.1:8000/api/logout', requestOptions)
+          fetch(`${AppConfig.backendUrl}/api/logout`, requestOptions)
           .then(response => response.json())
           .then(data => {
             setToken(null)

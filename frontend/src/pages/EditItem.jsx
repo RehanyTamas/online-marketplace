@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import { Link } from 'react-router-dom';
 import {BiSolidErrorCircle} from "react-icons/bi";
+import AppConfig from "../config";
 
 const fetchItem = (id) => {
-    return fetch(`http://127.0.0.1:8000/api/items/${id}`).then((res) => res.json());
+    return fetch(`${AppConfig.backendUrl}/api/items/${id}`).then((res) => res.json());
 };
 
 const EditItem = () => {
@@ -47,7 +48,7 @@ const EditItem = () => {
             body: JSON.stringify({ name: itemName, description: description, price:price })
         };
 
-        fetch('http://127.0.0.1:8000/api/itemsUserItems/' + id, requestOptions)
+        fetch(`${AppConfig.backendUrl}/api/itemsUserItems/`+ id, requestOptions)
             .then(response => response.json())
             .then(data => {
                 setSuccessVisibility('visible');

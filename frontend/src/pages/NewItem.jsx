@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { BiSolidErrorCircle } from 'react-icons/bi'
 import { useNavigate, Link  } from "react-router-dom";
+import AppConfig from "../config";
 
 
 const NewItem = () => {
@@ -36,7 +37,7 @@ const NewItem = () => {
             body: JSON.stringify({ name: itemName, description: description, price:price })
         };
 
-        fetch('http://127.0.0.1:8000/api/itemsUserItems', requestOptions)
+        fetch(`${AppConfig.backendUrl}/api/itemsUserItems`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 setSuccessVisibility('visible');

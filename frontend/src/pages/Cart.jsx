@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import AppConfig from "../config";
 
 const Cart = () => {
 
@@ -30,7 +31,7 @@ const Cart = () => {
             },
         };
 
-        fetch('http://127.0.0.1:8000/api/itemsBought', requestOptions)
+        fetch(`${AppConfig.backendUrl}/api/itemsBought`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log('API Response:', data);
@@ -57,7 +58,7 @@ const Cart = () => {
             })
         };
 
-        fetch('http://127.0.0.1:8000/api/purchase/invoice', requestOptions)
+        fetch(`${AppConfig.backendUrl}/api/purchase/invoice`, requestOptions)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
