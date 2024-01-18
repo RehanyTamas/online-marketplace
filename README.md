@@ -10,7 +10,9 @@ It includes functional front- and backend, user authentication, and invoice crea
 - ReactJs
 - MySQL
 
-## Installation
+## How to use
+
+### Method 1
 
 This project requires that your machine is able run Laravel and ReactJs projects.
 (The following instructions are for running the app on localhost, but it can be hosted with other technologies too (i.e. Apache), in which case you should change the in-built endpoints).
@@ -44,6 +46,22 @@ This project requires that your machine is able run Laravel and ReactJs projects
   ```sh
   npm start
   ```
+
+### Method 2
+
+The project can be run using docker.
+
+1. Download this repository to your machine
+2. Navigate to the project directory
+3. Move to docker folder
+  ```sh
+   cd docker
+  ```
+4. Run the compose file
+  ```sh
+  docker-compose up
+  ```
+If you wish to change the default settings (database name, password, backend/frontend port ... etc.) you can do this through the appropriate dockerfile and .env file (the one in the backend container).  
 
 ## Implemented features
 
